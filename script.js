@@ -45,6 +45,9 @@ buttons.addEventListener('click', function (event) {
       // 그리고 버튼의 클레스가 number이면
       // 아래 코드가 작동됩니다.
       console.log('숫자 ' + buttonContent + ' 버튼');
+      firstOperend.textContent === '0'
+        ? (firstOperend.textContent = buttonContent)
+        : (secondOperend.textContent = buttonContent);
     }
 
     if (action === 'operator') {
