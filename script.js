@@ -69,6 +69,11 @@ buttons.addEventListener('click', function (event) {
 
     if (action === 'calculate') {
       console.log('계산 버튼');
+      calculatedResult.textContent = calculate(
+        firstOperend.textContent,
+        operator.textContent,
+        secondOperend.textContent
+      );
     }
   }
 });
