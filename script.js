@@ -10,6 +10,23 @@ function calculate(n1, operator, n2) {
   let result = 0;
   // TODO : n1과 n2를 operator에 따라 계산하는 함수를 만드세요.
   // ex) 입력값이 n1 : '1', operator : '+', n2 : '2' 인 경우, 3이 리턴됩니다.
+  let N1 = Number(n1);
+  let N2 = Number(n2);
+
+  switch (operator) {
+    case '+':
+      result = N1 + N2;
+      break;
+    case '-':
+      result = N1 - N2;
+      break;
+    case '*':
+      result = N1 * N2;
+      break;
+    case '/':
+      result = N1 / N2;
+      break;
+  }
   return String(result);
 }
 
@@ -48,7 +65,6 @@ buttons.addEventListener('click', function (event) {
   }
 });
 
-
 // ! Advanced Challenge test와 Nightmare test를 위해서는 아래 주석을 해제하세요.
 
 const display = document.querySelector('.calculator__display--for-advanced'); // calculator__display 엘리먼트와, 그 자식 엘리먼트의 정보를 모두 담고 있습니다.
@@ -64,11 +80,15 @@ buttons.addEventListener('click', function (event) {
 
   // ! 여기서부터 Advanced Challenge & Nightmare 과제룰 풀어주세요.
   if (target.matches('button')) {
-    if (action === 'number') {}
-    if (action === 'operator') {}
-    if (action === 'decimal') {}
-    if (action === 'clear') {}
-    if (action === 'calculate') {}
+    if (action === 'number') {
+    }
+    if (action === 'operator') {
+    }
+    if (action === 'decimal') {
+    }
+    if (action === 'clear') {
+    }
+    if (action === 'calculate') {
+    }
   }
-
 });
