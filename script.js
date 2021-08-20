@@ -52,6 +52,7 @@ buttons.addEventListener('click', function (event) {
 
     if (action === 'operator') {
       console.log('연산자 ' + buttonContent + ' 버튼');
+      operator.textContent = buttonContent;
     }
 
     if (action === 'decimal') {
