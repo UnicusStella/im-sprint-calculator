@@ -57,6 +57,7 @@ buttons.addEventListener('click', function (event) {
 
     if (action === 'decimal') {
       // console.log('소수점 버튼');
+      // let check = false
     }
 
     if (action === 'clear') {
@@ -94,14 +95,61 @@ buttons.addEventListener('click', function (event) {
   // ! 여기서부터 Advanced Challenge & Nightmare 과제룰 풀어주세요.
   if (target.matches('button')) {
     if (action === 'number') {
+      display.textContent === '0' ||
+      previousKey === 'operator' ||
+      previousKey === 'calculate'
+        ? (display.textContent = buttonContent)
+        : (display.textContent = display.textContent + buttonContent);
+
+      previousKey = 'number';
     }
     if (action === 'operator') {
+      firstNum &&
+      operatorForAdvanced &&
+      previousKey !== 'operator' &&
+      previousKey !== 'calculate'
+        ? (display.textContent = calculate(
+            firstNum,
+            operatorForAdvanced,
+            display.textContent
+          ))
+        : (previousKey = 'operator');
+      firstNum = display.textContent;
+      operatorForAdvanced = buttonContent;
+      previousKey = 'operator';
     }
-    if (action === 'decimal') {
+  }
+  if (action === 'decimal') {
+    if (!display.textContent.includes('.') && previousKey !== 'operator')
+      display.textContent = display.textContent + '.';
+    else if (previousKey === 'operator') display.textContent = '0.';
+
+    previousKey = 'decimal';
+  }
+  if (action === 'clear') {
+    display.textContent = '0';
+    previousKey = undefined;
+    previousNum = undefined;
+    firstNum = undefined;
+    previousKey = 'clear';
+  }
+  if (action === 'calculate') {
+    if (firstNum) {
+      if (previousKey === 'calculate') {
+        display.textContent = calculate(
+          display.textContent,
+          operatorForAdvanced,
+          previousNum
+        );
+      } else {
+        previousNum = display.textContent;
+        display.textContent = calculate(
+          firstNum,
+          operatorForAdvanced,
+          display.textContent
+        );
+      }
     }
-    if (action === 'clear') {
-    }
-    if (action === 'calculate') {
-    }
+    previousKey = 'calculate';
   }
 });
