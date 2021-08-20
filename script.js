@@ -61,6 +61,10 @@ buttons.addEventListener('click', function (event) {
 
     if (action === 'clear') {
       console.log('초기화 버튼');
+      firstOperend.textContent = 0;
+      operator.textContent = '+';
+      secondOperend.textContent = 0;
+      calculatedResult.textContent = 0;
     }
 
     if (action === 'calculate') {
